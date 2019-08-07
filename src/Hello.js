@@ -1,3 +1,14 @@
 import React from 'react';
 
-export default ({ name }) => <h1>Hello {name}!</h1>;
+class HelloWorld extends React.PureComponent {
+    render() {
+        return (
+            <React.Fragment>
+                <h1>Hello CINQ Technologies!</h1>
+                <h2>Welcome to our React Bootcamp :)</h2>
+            </React.Fragment>
+        )
+    }
+}
+
+export default HelloWorld;
