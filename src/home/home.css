@@ -1,0 +1,12 @@
+#home {
+  padding: 1.5rem;
+}
+
+#home h1,
+#home h2 {
+  margin-bottom: 1rem;
+}
+
+#home hr {
+  margin: 2rem 0;
+}
