@@ -1,16 +1,57 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, {useEffect, useState} from 'react';
+import * as ReactDOM from "react-dom";
+
 import Hello from './Hello';
 import './style.css';
+import Axios from "axios-observable";
 
-class App extends Component {
-  render() {
+const GetPhoto = () => {
+    const axios = Axios.create({
+        baseURL: 'https://jsonplaceholder.typicode.com/',
+        timeout: 1000,
+        /*headers: {'X-Custom-Header': 'blalba'}*/
+    });
+
+    const [photo, setPhoto] = useState(null);
+
+    const options = {
+        method: 'get',
+        url: 'photos/1',
+        responseType: 'json'
+    };
+
+    useEffect(() => {
+        axios.request(options)
+            .subscribe(({data}) => {
+                setPhoto(data);
+            });
+    }, []);
+
+
     return (
-      <div>
-        <Hello />
-      </div>
+        <div>
+            {photo ?
+                <div className="photo-div">
+                    <label>
+                        {photo.title}
+                    </label>
+                    <img src={photo.thumbnailUrl}/>
+                </div>
+                :
+                ''}
+        </div>
     );
-  }
 }
 
-render(<App />, document.getElementById('root'));
+const App = () => {
+    return (
+        <div>
+            <Hello/>
+            <GetPhoto/>
+        </div>
+    );
+}
+
+ReactDOM.render(React.createElement(App), document.getElementById('root'));
+
+/*render(<App/>, document.getElementById('root'));*/
