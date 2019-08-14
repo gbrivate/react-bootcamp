@@ -21,8 +21,7 @@ const AppRoute = () => {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/">Home</Link>
-                        </li>
+                            <Link to="/"> Home </Link></li>
                         <li>
                             <Link to="/photo/">Photo</Link>
                         </li>

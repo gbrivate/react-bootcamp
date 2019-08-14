@@ -17,6 +17,9 @@ const App = () => {
     );
 }
 
-ReactDOM.render(React.createElement(App), document.getElementById('root'));
+ReactDOM.render(
+    React.createElement(App),
+    document.getElementById('root')
+);
 
 /*render(<App/>, document.getElementById('root'));*/
