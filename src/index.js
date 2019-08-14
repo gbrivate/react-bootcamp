@@ -10,9 +10,7 @@ import Home from "./Home";
 const App = () => {
     return (
         <AppRoute>
-            <div>
-                <Home/>
-            </div>
+            <Home/>
         </AppRoute>
     );
 }
